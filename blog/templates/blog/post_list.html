@@ -1,22 +1,117 @@
 <html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+<head>
+    <title>Blog Django Girls</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/css/blog.css">
+    
+    <style>
+        .page-header {
+            background-color: #ec863c;
+            margin-top: 0;
+            padding: 20px 20px 20px 40px;
+        }
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
+        .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+            color: #ffffff;
+            font-size: 36pt;
+            text-decoration: none;
+        }
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+        .content {
+            margin-left: 40px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Lobster', cursive;
+        }
+
+        .date {
+            color: #828282;
+        }
+
+        .save {
+            float: right;
+        }
+
+        .post-form textarea, .post-form input {
+            width: 100%;
+        }
+
+        .top-menu, .top-menu:hover, .top-menu:visited {
+            color: #ffffff;
+            float: right;
+            font-size: 26pt;
+            margin-right: 20px;
+        }
+
+        .post {
+            margin-bottom: 70px;
+        }
+
+        .post h2 a, .post h2 a:visited {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <a href="/post/new" class="top-menu" target="_blank"><span class="glyphicon glyphicon-plus"></span></a>
+        <h1><a href="/">Django Girls Blog</a></h1>
+    </div>
+    
+    
+    <div class="content container" id="new-post-form" style="display: none;">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>New post</h2>
+                <form method="POST" class="post-form">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="JCqk8o1be7LyumXiJcpuATDZStTB4rD9PfMgBoHnIN51DkaSV4X6N4jJabmxotgK">
+                    <p><label for="id_title">Title:</label> <input type="text" name="title" maxlength="200" required id="id_title"></p>
+                    <p><label for="id_text">Text:</label> <textarea name="text" cols="40" rows="10" required id="id_text"></textarea></p>
+                    <button type="submit" class="save btn btn-default">Save</button>
+                </form>
+            </div>
         </div>
-    </body>
+    </div>
+    
+    <script>
+        document.getElementById("new-post-button").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("new-post-form").style.display = "block";
+        });
+    </script>
+    
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="post">
+                    <div class="date">
+                        <p>publicado: April 17, 2024, 11:52 p.m.</p>
+                    </div>
+                    <h2><a href="/post/1/">FrameWork Django</a></h2>
+                    <p>Django es un framework de desarrollo web de alto nivel y de código abierto, escrito en Python, que facilita la creación rápida y segura de aplicaciones web robustas y escalables. Ofrece un conjunto completo de herramientas para manejar aspectos como el enrutamiento de URLs, la interacción con bases de datos, la autenticación de usuarios y la generación dinámica de contenido HTML. Además, sigue el principio de &quot;baterías incluidas&quot;, proporcionando soluciones preconstruidas para tareas, lo que agiliza el desarrollo y fomenta las mejores prácticas.</p>
+                </div>
+
+                <div class="post">
+                    <div class="date">
+                        <p>publicado: April 17, 2024, 11:52 p.m.</p>
+                    </div>
+                    <h2><a href="/post/2/">MicroframeWork Flask</a></h2>
+                    <p>Flask es un microframework web Python que se utiliza para crear aplicaciones web de forma rápida y sencilla con una sintaxis simple y fácil de entender. Aunque es minimalista en comparación con otros frameworks como Django, Flask es altamente extensible y permite la integración con diferentes extensiones para agregar funcionalidades según las necesidades del proyecto. Esto lo hace ideal para aplicaciones web más pequeñas o para proyectos que requieren una mayor flexibilidad en su arquitectura.</p>
+                </div>
+
+                <div class="post">
+                    <div class="date">
+                        <p>publicado: April 17, 2024, 11:53 p.m.</p>
+                    </div>
+                    <h2><a href="/post/3/">Python</a></h2>
+                    <p>es un lenguaje de programación de alto nivel, interpretado, multipropósito y de código abierto. Es conocido por su sintaxis clara y legible, lo que lo hace especialmente popular entre los desarrolladores principiantes y experimentados por igual. Python es altamente versátil y se utiliza en una amplia gama de aplicaciones, incluyendo desarrollo web, análisis de datos, inteligencia artificial, aprendizaje automático, scripting de sistemas, automatización, entre otros. Su comunidad activa y su amplio ecosistema de bibliotecas y frameworks lo convierten en una opción poderosa para resolver una variedad de problemas de programación.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
